@@ -63,7 +63,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#0B1F44] text-[#FAF8F4] flex flex-col font-sans selection:bg-[#B8925A] selection:text-[#0B1F44]">
+    <div className="relative min-h-screen w-full max-w-full overflow-x-hidden bg-[#0B1F44] text-[#FAF8F4] flex flex-col font-sans selection:bg-[#B8925A] selection:text-[#0B1F44]">
       {/* 3D Dynamic Background with Scroll-drawn Journey Connector Line & White Ambient Light */}
       <DynamicBackground />
 

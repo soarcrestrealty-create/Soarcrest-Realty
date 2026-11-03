@@ -115,43 +115,50 @@ export const Header: React.FC<HeaderProps> = ({
               {/* Mobile hamburger */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg text-[#FAF8F4] hover:bg-[#0B1F44] border border-[#B8925A]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B8925A]"
+                className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-lg text-[#FAF8F4] hover:bg-[#0B1F44] border border-[#B8925A]/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B8925A]"
                 aria-label="Toggle navigation menu"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {mobileMenuOpen ? <X className="w-6 h-6 text-[#D4AF37]" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile dropdown menu */}
+        {/* Mobile dropdown menu with backdrop */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#07152F] border-b border-[#B8925A]/30 px-5 pt-3 pb-6 space-y-3">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleLinkClick(item.id)}
-                className={`block w-full text-left py-2.5 px-3 rounded-lg text-sm font-medium ${
-                  currentPage === item.id
-                    ? 'bg-[#B8925A]/20 text-[#FAF8F4] font-semibold'
-                    : 'text-[#FAF8F4]/80 hover:bg-[#0B1F44]'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-            <div className="pt-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenBooking('Book a Free Discovery Call');
-                }}
-                className="w-full py-3 rounded-lg bg-gradient-to-r from-[#B8925A] to-[#D4AF37] text-[#07152F] text-xs font-bold uppercase tracking-wider text-center"
-              >
-                Book a Free Discovery Call
-              </button>
+          <>
+            <div
+              className="fixed inset-0 top-[65px] bg-black/60 backdrop-blur-xs z-[-1]"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <div className="md:hidden bg-[#07152F] border-b border-[#B8925A]/30 px-5 pt-3 pb-6 space-y-2 shadow-2xl">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleLinkClick(item.id)}
+                  className={`block w-full text-left py-3 px-4 rounded-xl text-sm font-medium transition-colors ${
+                    currentPage === item.id
+                      ? 'bg-[#B8925A]/25 text-[#FAF8F4] font-semibold border-l-4 border-[#B8925A]'
+                      : 'text-[#FAF8F4]/80 hover:bg-[#0B1F44]'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+              <div className="pt-3">
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenBooking('Book a Free Discovery Call');
+                  }}
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#B8925A] to-[#D4AF37] text-[#07152F] text-xs font-bold uppercase tracking-wider text-center shadow-lg active:scale-95 transition-transform"
+                >
+                  Book a Free Discovery Call
+                </button>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </header>
     </>

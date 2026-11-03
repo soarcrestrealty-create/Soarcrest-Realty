@@ -124,6 +124,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <img
                 src={ASSETS.ABUJA_GATE}
                 alt="Abuja City Gate Welcome"
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07152F] via-[#07152F]/30 to-transparent" />
@@ -141,6 +143,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <img
                 src={ASSETS.TERRACES_STREET}
                 alt="Contemporary Abuja Terraces"
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07152F] via-[#07152F]/30 to-transparent" />
@@ -242,6 +246,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             <img
               src={ASSETS.VETTED_COMMUNITY}
               alt="Physical site inspection in progress"
+              loading="lazy"
+              decoding="async"
               className="w-full h-80 object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#07152F] via-transparent to-transparent" />
@@ -451,6 +457,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <img
                 src={ASSETS.CONTEMPORARY_DUPLEX}
                 alt="Off-plan construction milestone vetting"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -467,6 +475,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               <img
                 src={ASSETS.VETTED_COMMUNITY}
                 alt="On-ground title and development physical inspection"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -748,6 +758,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             <img
               src={ASSETS.ESTATE_AERIAL}
               alt="Planned Soarcrest City aerial vision"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#07152F] via-[#07152F]/40 to-transparent" />

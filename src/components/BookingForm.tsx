@@ -1167,7 +1167,7 @@ I will be looking forward to hearing from you.`;
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 overflow-y-auto p-3 sm:p-6 flex items-center justify-center">
       {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -1176,7 +1176,7 @@ I will be looking forward to hearing from you.`;
         onClick={onClose}
         className="fixed inset-0 bg-[#07152F]/85 backdrop-blur-md"
       />
-      <div className="relative z-10 w-full max-w-2xl my-auto">
+      <div className="relative z-10 w-full max-w-2xl my-auto max-h-[92vh] overflow-y-auto rounded-2xl shadow-2xl">
         {content}
       </div>
     </div>

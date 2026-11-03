@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { X, Shield } from 'lucide-react';
-import { NeedFactBadge } from './NeedFactBadge';
 
 export const PrivacyModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
@@ -36,9 +35,6 @@ export const PrivacyModal: React.FC<{ isOpen: boolean; onClose: () => void }> = 
         </div>
 
         <div className="space-y-4 text-xs sm:text-sm text-[#FAF8F4]/80 leading-relaxed">
-          <div className="mb-2">
-            <NeedFactBadge fact="Privacy notice text for the form's consent link" />
-          </div>
           <p>
             At Soarcrest Realty, we treat your confidential investment intentions and personal details with utmost discretion.
           </p>

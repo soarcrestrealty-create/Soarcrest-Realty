@@ -7,7 +7,7 @@ interface MobileBottomBarProps {
 
 export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onOpenBooking }) => {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#07152F]/95 backdrop-blur-md border-t border-[#B8925A]/35 px-4 py-2.5 shadow-2xl">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#07152F]/95 backdrop-blur-md border-t border-[#B8925A]/35 px-4 pt-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom,0px))] shadow-2xl">
       <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
         <div className="leading-tight">
           <p className="text-xs font-serif font-bold text-[#FAF8F4]">Free Discovery Call</p>

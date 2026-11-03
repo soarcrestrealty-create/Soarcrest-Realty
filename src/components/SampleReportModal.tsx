@@ -50,6 +50,8 @@ export const SampleReportModal: React.FC<SampleReportModalProps> = ({ isOpen, on
           <img
             src={ASSETS.SURVEY_DRONE_PLOT}
             alt="Drone site survey beacon and boundary verification"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#07152F] via-transparent to-transparent" />

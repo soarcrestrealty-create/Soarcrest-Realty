@@ -390,6 +390,8 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({
                     <img
                       src={prop.image_urls}
                       alt={prop.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
@@ -621,13 +623,13 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({
               </div>
 
               {/* Action Button */}
-              <div className="pt-4 border-t border-[#B8925A]/20 flex items-center justify-between">
+              <div className="pt-4 border-t border-[#B8925A]/20 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
                 <button
                   onClick={() => {
                     setSelectedProperty(null);
                     onOpenConditionReport();
                   }}
-                  className="text-xs text-[#D4AF37] underline"
+                  className="text-xs text-[#D4AF37] hover:underline text-left"
                 >
                   View Sample Condition Report Format
                 </button>
@@ -638,7 +640,7 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({
                     setSelectedProperty(null);
                     onOpenBooking('Book a Call About This Property', prop.listing_id, prop.title);
                   }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#B8925A] to-[#D4AF37] text-[#07152F] font-bold text-xs uppercase tracking-wider"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#B8925A] to-[#D4AF37] text-[#07152F] font-bold text-xs uppercase tracking-wider active:scale-95 transition-transform"
                 >
                   <span>Book a Call About This Property</span>
                   <ArrowRight className="w-4 h-4" />

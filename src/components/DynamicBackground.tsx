@@ -12,17 +12,31 @@ export const DynamicBackground: React.FC = () => {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Only track mouse on devices with fine pointer (mouse/trackpad), saving battery and CPU on mobile
+    if (typeof window === 'undefined' || !window.matchMedia('(pointer: fine)').matches) {
+      return;
+    }
+
+    let rafId: number | null = null;
     const handleMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 40;
-      const y = (e.clientY / window.innerHeight - 0.5) * 40;
-      setMouse({ x, y });
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 40;
+        const y = (e.clientY / window.innerHeight - 0.5) * 40;
+        setMouse({ x, y });
+        rafId = null;
+      });
     };
+
     window.addEventListener('mousemove', handleMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden transform-gpu" aria-hidden="true">
       {/* Dynamic Ambient Radiant Light Shafts */}
       <motion.div
         animate={{

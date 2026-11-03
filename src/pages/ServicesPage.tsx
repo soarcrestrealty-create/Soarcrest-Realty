@@ -295,6 +295,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
               <img
                 src={ASSETS.APARTMENT_BLOCK}
                 alt="Architectural audit photography"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-2 left-2 text-[10px] font-mono text-white bg-black/60 px-2 py-0.5 rounded">
@@ -305,6 +307,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
               <img
                 src={ASSETS.TERRACES_STREET}
                 alt="Surrounding neighborhood context"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-2 left-2 text-[10px] font-mono text-white bg-black/60 px-2 py-0.5 rounded">
@@ -317,7 +321,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
 
       {/* SECTION 5: WHAT THIS COSTS */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-b border-[#B8925A]/20">
-        <div className="space-y-4 mb-10">
+        <div className="space-y-4 mb-8">
           <span className="text-xs font-mono uppercase tracking-widest text-[#B8925A]">
             Clear Pricing
           </span>
@@ -329,9 +333,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
           </p>
         </div>
 
+        {/* Mobile swipe helper */}
+        <div className="sm:hidden text-xs text-[#D4AF37] flex items-center gap-1.5 mb-2 font-mono">
+          <ArrowRight className="w-3.5 h-3.5" />
+          <span>Swipe horizontally to view full schedule</span>
+        </div>
+
         {/* Cost Table */}
-        <div className="overflow-x-auto rounded-2xl border border-[#B8925A]/35 bg-[#07152F]">
-          <table className="w-full text-left text-sm border-collapse">
+        <div className="overflow-x-auto rounded-2xl border border-[#B8925A]/35 bg-[#07152F] -mx-4 sm:mx-0 px-4 sm:px-0">
+          <table className="w-full min-w-[560px] text-left text-sm border-collapse">
             <thead>
               <tr className="border-b border-[#B8925A]/30 bg-[#0B1F44] text-[#D4AF37] text-xs font-mono uppercase tracking-wider">
                 <th className="py-4 px-5">What</th>

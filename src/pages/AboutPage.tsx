@@ -30,6 +30,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
             <img
               src={ASSETS.HILLSIDE_MANSION}
               alt="Abuja hillside prime residential property"
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#07152F] via-[#07152F]/20 to-transparent" />
