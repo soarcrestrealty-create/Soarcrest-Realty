@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Check, X, AlertCircle, ArrowRight, ArrowLeft, ShieldCheck, Clock, FileCheck, Copy, MessageCircle, ExternalLink, Phone } from 'lucide-react';
 import { ENDPOINT, OFFICIAL_PHONE, OFFICIAL_PHONE_DISPLAY, OFFICIAL_WHATSAPP_NUMBER } from '../config';
 import { LeadPayload } from '../types';
-import { NeedFactBadge } from './NeedFactBadge';
 
 interface BookingFormProps {
   isOpen?: boolean;
@@ -1025,9 +1024,7 @@ I will be looking forward to hearing from you.`;
                 Thanks, {firstName}. Your details have reached us.
               </p>
               <div className="mt-2 text-sm text-[#FAF8F4]/75 max-w-lg mx-auto">
-                <span>A named person at Soarcrest will contact you </span>
-                <NeedFactBadge fact="response window" inline={true} />
-                <span> by {contactMethod || 'your chosen method'} to confirm a time for your free discovery call.</span>
+                <span>A named person at Soarcrest will contact you within 24 hours by {contactMethod || 'your chosen method'} to confirm a time for your free discovery call.</span>
               </div>
             </div>
 

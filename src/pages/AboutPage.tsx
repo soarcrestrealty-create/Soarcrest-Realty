@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, CheckCircle2, ArrowRight, FileText, Building, Award, Target, Compass } from 'lucide-react';
-import { NeedFactBadge } from '../components/NeedFactBadge';
-import { ASSETS } from '../config';
+import { ShieldCheck, CheckCircle2, ArrowRight, Building, Award, Target, Compass, MapPin, Phone, Mail } from 'lucide-react';
+import { ASSETS, OFFICIAL_PHONE_DISPLAY, OFFICIAL_WHATSAPP_NUMBER, OFFICIAL_EMAIL, OFFICIAL_ADDRESS } from '../config';
 
 interface AboutPageProps {
   onOpenBooking: (buttonLabel: string) => void;
@@ -79,38 +78,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
         </div>
       </section>
 
-      {/* SECTION 3: THE FOUNDER'S STORY */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-b border-[#B8925A]/20">
-        <div className="p-8 sm:p-10 rounded-3xl bg-[#07152F] border border-[#B8925A]/35 space-y-6">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#B8925A]">
-            Authentic Origins
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#FAF8F4]">
-            The Founder's Story
-          </h2>
-
-          <div className="space-y-4">
-            <NeedFactBadge
-              fact="Write 3 to 5 short paragraphs in the founder's voice"
-              inline={false}
-            />
-            <p className="text-xs text-[#FAF8F4]/60 italic">
-              Prompts to answer, in plain words, so this section is real rather than polished:
-            </p>
-            <ul className="space-y-2 text-xs sm:text-sm text-[#FAF8F4]/80 list-disc list-inside">
-              <li>What moment made you decide this needed to exist? A personal experience, something you saw, something someone told you?</li>
-              <li>What did you see other agents get wrong?</li>
-              <li>What do you want a client to say about you five years from now?</li>
-              <li>Names, roles and photos of the people clients will actually speak to.</li>
-            </ul>
-            <p className="text-xs text-[#D4AF37] font-serif italic pt-2">
-              Do not invent a backstory. A short true story beats a long polished one.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4: WHAT WE STAND FOR */}
+      {/* SECTION 3: WHAT WE STAND FOR */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-b border-[#B8925A]/20">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
           <span className="text-xs font-mono uppercase tracking-widest text-[#B8925A]">
@@ -164,7 +132,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
         </div>
       </section>
 
-      {/* SECTION 5: HOW WE THINK (THE INVESTOR MINDSET) */}
+      {/* SECTION 4: HOW WE THINK (THE INVESTOR MINDSET) */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-b border-[#B8925A]/20">
         <div className="space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-[#B8925A]">
@@ -188,7 +156,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
         </div>
       </section>
 
-      {/* SECTION 6: WHY PEOPLE TRUST THE PROCESS */}
+      {/* SECTION 5: WHY PEOPLE TRUST THE PROCESS */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto border-b border-[#B8925A]/20">
         <div className="space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-[#B8925A]">
@@ -220,7 +188,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
         </div>
       </section>
 
-      {/* SECTION 7: STRAIGHT TALK ABOUT MONEY */}
+      {/* SECTION 6: STRAIGHT TALK ABOUT MONEY */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-b border-[#B8925A]/20">
         <div className="space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-[#B8925A]">
@@ -239,8 +207,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
                 Search & Vetting Fee
               </h4>
               <p className="text-sm text-[#FAF8F4]/80 leading-relaxed">
-                Serious buyers pay a search and vetting fee that funds a dedicated, accountable process,{' '}
-                <NeedFactBadge fact="partly refundable if we don't deliver, confirm exact terms before publishing" />.
+                Serious buyers pay a search and vetting fee that funds a dedicated, accountable process. This fee is refundable only if we don't deliver.
               </p>
             </div>
 
@@ -269,11 +236,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
         </div>
       </section>
 
-      {/* SECTION 8: CREDENTIALS */}
+      {/* SECTION 7: CORPORATE DETAILS */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-b border-[#B8925A]/20">
         <div className="space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-[#B8925A]">
-            Regulatory & Corporate Proof
+            Corporate Presence
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#FAF8F4] tracking-tight">
             Who we are on paper.
@@ -281,38 +248,50 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
 
           <div className="p-6 sm:p-8 rounded-2xl bg-[#07152F] border border-[#B8925A]/30 space-y-4 text-sm text-[#FAF8F4]/80">
             <div>
-              <span className="text-[#FAF8F4]/50 block text-xs">Registered company name and RC number:</span>
-              <NeedFactBadge fact="Registered company name and RC number" />
+              <span className="text-[#FAF8F4]/50 block text-xs">Brokerage:</span>
+              <span className="text-[#FAF8F4] font-medium text-base">Soarcrest Realty</span>
             </div>
 
             <div>
-              <span className="text-[#FAF8F4]/50 block text-xs">SCUML (anti-money-laundering) registration:</span>
-              <NeedFactBadge fact="show only once registered" />
+              <span className="text-[#FAF8F4]/50 block text-xs">Office Address:</span>
+              <span className="text-[#FAF8F4] font-medium flex items-start gap-1.5 mt-0.5">
+                <MapPin className="w-4 h-4 text-[#B8925A] shrink-0 mt-0.5" />
+                <span>{OFFICIAL_ADDRESS}</span>
+              </span>
             </div>
 
             <div>
-              <span className="text-[#FAF8F4]/50 block text-xs">Professional memberships:</span>
-              <NeedFactBadge fact="list only those that apply to Soarcrest's activities" />
+              <span className="text-[#FAF8F4]/50 block text-xs">Official Contact & WhatsApp:</span>
+              <a
+                href={`https://wa.me/${OFFICIAL_WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#D4AF37] hover:underline font-medium inline-flex items-center gap-1.5 mt-0.5"
+              >
+                <Phone className="w-4 h-4 text-[#B8925A]" />
+                <span>{OFFICIAL_PHONE_DISPLAY}</span>
+              </a>
             </div>
 
             <div>
-              <span className="text-[#FAF8F4]/50 block text-xs">Office address:</span>
-              <NeedFactBadge fact="Office address" />
+              <span className="text-[#FAF8F4]/50 block text-xs">Official Email:</span>
+              <a
+                href={`mailto:${OFFICIAL_EMAIL}`}
+                className="text-[#D4AF37] hover:underline font-medium inline-flex items-center gap-1.5 mt-0.5"
+              >
+                <Mail className="w-4 h-4 text-[#B8925A]" />
+                <span>{OFFICIAL_EMAIL}</span>
+              </a>
             </div>
 
-            <div>
-              <span className="text-[#FAF8F4]/50 block text-xs">Team:</span>
-              <NeedFactBadge fact="names, roles and photos" />
-            </div>
-
-            <p className="text-sm font-semibold text-[#D4AF37] pt-2">
-              Ask us for any of these documents at any time. We'd rather you check.
+            <p className="text-sm font-semibold text-[#D4AF37] pt-2 border-t border-[#B8925A]/20">
+              Ask us for any verification documents or title search audits at any time. We'd rather you check.
             </p>
           </div>
         </div>
       </section>
 
-      {/* SECTION 9: WHERE THIS IS GOING */}
+      {/* SECTION 8: WHERE THIS IS GOING */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-b border-[#B8925A]/20">
         <div className="p-8 sm:p-12 rounded-3xl bg-[#07152F] border border-[#B8925A]/35 space-y-6">
           <span className="text-xs font-mono uppercase tracking-widest text-[#B8925A]">
@@ -336,7 +315,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenBooking }) => {
         </div>
       </section>
 
-      {/* SECTION 10: CLOSING CTA */}
+      {/* SECTION 9: CLOSING CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center space-y-6">
         <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#FAF8F4] tracking-tight">
           Come and talk to us. See if it feels right.

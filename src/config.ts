@@ -5,6 +5,8 @@ export const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwiodYnB554mi3X
 export const OFFICIAL_PHONE = '+2347069124483';
 export const OFFICIAL_PHONE_DISPLAY = '+234 706 912 4483';
 export const OFFICIAL_WHATSAPP_NUMBER = '2347069124483';
+export const OFFICIAL_EMAIL = 'info@soracrestrealty.com';
+export const OFFICIAL_ADDRESS = 'Plot 144, House 3, Jubilation Bethel Estate, Lokogoma, Abuja';
 
 // Authentic Brand Assets provided by client
 export const ASSETS = {

@@ -16,7 +16,6 @@ import {
   XCircle,
   Eye
 } from 'lucide-react';
-import { NeedFactBadge } from '../components/NeedFactBadge';
 import { ASSETS } from '../config';
 
 interface ServicesPageProps {
@@ -43,8 +42,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
       headline: 'A managed search, not a list of ads.',
       icon: Search,
       description: 'We source options against your brief, including properties from our direct relationships with owners and developers, and from other brokerages. You score each shortlisted property from 1 to 10. Below your threshold, we keep searching. Above it, we move to full vetting.',
-      feeNote: 'Serious buyers fund this with a search and vetting fee. We charge it because proper searching takes paid time from people who go and look, and because it lets us commit real effort to buyers who are serious.',
-      feeNeedFact: 'fee amount, what it covers, refund terms. Brand guide says partly refundable if Soarcrest does not deliver.',
+      feeNote: 'Serious buyers fund this with a dedicated search and vetting fee. This fee is refundable only if we don\'t deliver.',
       whatYouGet: 'a scored shortlist with reasons, and an accountable search.',
     },
     {
@@ -56,7 +54,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
       image: ASSETS.CONTEMPORARY_DUPLEX,
       imageLabel: 'Physical Site Vetting in Progress',
       description: 'Every property is inspected, in person or by live video, before it\'s shown to you as a serious option. We check: Roofing, Plumbing, Electrical systems, Structure, Interior condition. Then we write it all up.',
-      whatYouGet: 'a written condition report, photos, a video walk-through and a virtual tour. If a property is unfinished, we may show an AI-generated render so you can picture the finished result. It will always be clearly labelled as a render, never passed off as the real thing.',
+      whatYouGet: 'a written condition report, photos, a video walk-through and a virtual tour. If a property is unfinished, we may show an architectural visualization so you can picture the finished result. It will always be clearly labelled as a visualization, never passed off as the real thing.',
     },
     {
       id: 4,
@@ -64,8 +62,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
       title: 'Title and Legal Verification',
       headline: 'Paper checks before money moves.',
       icon: Scale,
-      image: ASSETS.SURVEY_DRONE_PLOT,
-      imageLabel: 'Survey Beacon & AGIS Boundary Verification',
+      image: ASSETS.APARTMENT_BLOCK,
+      imageLabel: 'AGIS Boundary & Registry Title Verification',
       description: 'A property can look perfect and still carry a problem in its documents. So an independent solicitor reviews the document chain, and the title is searched at the land registry (AGIS, in the FCT) before further payment is made.\n\nThings the check looks at include: whether the seller\'s ID matches the name on the title, whether ground rent is current, whether the survey plan matches the plot, what consents exist and what\'s still outstanding, and whether there are any encumbrances or acquisition notices.',
       extraNote: 'A note we\'ll always repeat: we coordinate verification, and the solicitor on your deal decides what applies. We don\'t give legal advice.',
       whatYouGet: 'the registry search results and a written solicitor\'s opinion, shared with you before the main payment.',
@@ -86,7 +84,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
       headline: 'Own a share of a real property, with people you can name.',
       icon: Users,
       description: 'Pooling money is how many people get into property. We make it safe: a written co-ownership agreement covering each person\'s share, how decisions are made, who manages the property, what happens when someone wants out or stops contributing, and how income and costs are split.\n\nSoarcrest can then manage the asset and the relationship between co-owners on an ongoing basis.',
-      feeNeedFact: 'management fee terms. Internal discussion mentioned roughly 20 to 25% of annual rent; confirm before publishing any figure.',
+      feeNote: 'Management terms and profit distribution structures are agreed upfront in writing before pooling funds.',
       whatYouGet: 'a structured, documented, managed shared purchase.',
     },
     {
@@ -107,7 +105,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
       headline: '"What\'s happening with my property?" Never a mystery.',
       icon: Activity,
       description: 'You can see every stage of your purchase: search, vetting, title, payment, consent, handover. Documents attached to each stage.',
-      feeNeedFact: 'confirm tracker is live before publishing this section. If still in development, move it to "coming soon" or remove.',
       whatYouGet: 'a real-time transparent timeline with verified deeds and inspection reports.',
     },
     {
@@ -116,8 +113,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
       title: 'After-Sale Care and Property Management (optional)',
       headline: 'We don\'t disappear after the commission.',
       icon: HomeIcon,
-      description: 'A check-in after completion.',
-      feeNeedFact: 'confirm the 90-day post-completion check-in is a firm commitment',
+      description: 'A dedicated check-in after completion.',
       extraNote: 'If you\'d like us to keep looking after the asset, an optional management agreement covers maintenance and periodic owner reports, with photos and an income statement.',
       whatYouGet: 'ongoing tenant management, quarterly condition inspections, and transparent yield disbursements.',
     },
@@ -257,17 +253,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
                     {s.feeNote && (
                       <div className="p-4 rounded-xl bg-[#0B1F44] border border-[#B8925A]/30 text-xs sm:text-sm text-[#FAF8F4]/85">
                         <p>{s.feeNote}</p>
-                        {s.feeNeedFact && (
-                          <div className="mt-2">
-                            <NeedFactBadge fact={s.feeNeedFact} />
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {!s.feeNote && s.feeNeedFact && (
-                      <div className="mt-2">
-                        <NeedFactBadge fact={s.feeNeedFact} />
                       </div>
                     )}
 
@@ -363,8 +348,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
               <tr>
                 <td className="py-4 px-5 font-semibold text-[#FAF8F4]">Search and vetting fee</td>
                 <td className="py-4 px-5">You, if you proceed</td>
-                <td className="py-4 px-5">
-                  <NeedFactBadge fact="amount and refund terms" />
+                <td className="py-4 px-5 text-xs text-[#FAF8F4]/80">
+                  <span className="font-medium text-[#D4AF37]">Refundable only if we don't deliver.</span> Funds an exhaustive, dedicated inspection and documentation vetting process.
                 </td>
               </tr>
               <tr>

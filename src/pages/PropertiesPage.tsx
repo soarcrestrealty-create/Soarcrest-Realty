@@ -18,7 +18,6 @@ import {
 } from 'lucide-react';
 import { PropertyListing } from '../types';
 import { ENDPOINT, ASSETS } from '../config';
-import { NeedFactBadge } from '../components/NeedFactBadge';
 
 interface PropertiesPageProps {
   onOpenBooking: (buttonLabel: string, listingId?: string, listingTitle?: string, initialRole?: string) => void;
@@ -572,13 +571,13 @@ export const PropertiesPage: React.FC<PropertiesPageProps> = ({
                   <div>
                     <span className="text-[#FAF8F4]/60 block">Net Income Est:</span>
                     <span className="text-[#FAF8F4]/90">
-                      {selectedProperty.net_income_estimate || <NeedFactBadge fact="net income estimate per property" />}
+                      {selectedProperty.net_income_estimate || 'Available upon request based on strategy'}
                     </span>
                   </div>
                   <div>
                     <span className="text-[#FAF8F4]/60 block">Service Charge:</span>
                     <span className="text-[#FAF8F4]/90">
-                      {selectedProperty.service_charge || <NeedFactBadge fact="service charge per property" />}
+                      {selectedProperty.service_charge || 'Confirmed during discovery call'}
                     </span>
                   </div>
                 </div>

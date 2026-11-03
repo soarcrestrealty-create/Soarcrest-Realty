@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { BookingForm } from '../components/BookingForm';
-import { NeedFactBadge } from '../components/NeedFactBadge';
 import { Mail, Phone, MapPin, Clock, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { OFFICIAL_PHONE, OFFICIAL_PHONE_DISPLAY, OFFICIAL_WHATSAPP_NUMBER } from '../config';
+import { OFFICIAL_PHONE, OFFICIAL_PHONE_DISPLAY, OFFICIAL_WHATSAPP_NUMBER, OFFICIAL_EMAIL, OFFICIAL_ADDRESS } from '../config';
 
 interface ContactPageProps {
   onOpenPrivacy: () => void;
@@ -57,11 +56,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               <h3 className="font-serif font-bold text-base text-[#FAF8F4]">
                 2. A real person reaches out.
               </h3>
-              <div className="text-sm text-[#FAF8F4]/80 leading-relaxed">
-                <span>We'll contact you </span>
-                <NeedFactBadge fact="response window, e.g. within one working day. Only promise what the team can keep" />
-                <span> using the method and time you choose.</span>
-              </div>
+              <p className="text-sm text-[#FAF8F4]/80 leading-relaxed">
+                We'll contact you within 24 hours using the method and time you choose.
+              </p>
             </div>
 
             <div className="p-5 rounded-xl bg-[#07152F] border border-[#B8925A]/25 space-y-2">
@@ -189,17 +186,22 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               <span className="text-[#FAF8F4]/50 flex items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-[#B8925A]" /> Email
               </span>
-              <div>
-                <NeedFactBadge fact="Email" />
+              <div className="pt-0.5">
+                <a
+                  href={`mailto:${OFFICIAL_EMAIL}`}
+                  className="font-medium text-[#FAF8F4] hover:text-[#D4AF37] transition-colors break-all"
+                >
+                  {OFFICIAL_EMAIL}
+                </a>
               </div>
             </div>
 
             <div className="p-3.5 rounded-xl bg-[#07152F] border border-[#B8925A]/20 space-y-1">
               <span className="text-[#FAF8F4]/50 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#B8925A]" /> Office
+                <MapPin className="w-3.5 h-3.5 text-[#B8925A]" /> Office Address
               </span>
-              <div>
-                <NeedFactBadge fact="Office address" />
+              <div className="pt-0.5 text-[#FAF8F4]/90 font-medium leading-snug">
+                {OFFICIAL_ADDRESS}
               </div>
             </div>
 
@@ -207,8 +209,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({
               <span className="text-[#FAF8F4]/50 flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#B8925A]" /> Hours
               </span>
-              <div>
-                <NeedFactBadge fact="Hours" />
+              <div className="pt-0.5 text-[#FAF8F4]/90 font-medium">
+                Mon – Sat: 9:00 AM – 6:00 PM (WAT)
               </div>
             </div>
           </div>

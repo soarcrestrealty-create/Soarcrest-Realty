@@ -1,9 +1,8 @@
 import React from 'react';
 import { Logo } from './Logo';
 import { PageRoute } from '../types';
-import { NeedFactBadge } from './NeedFactBadge';
-import { ShieldCheck, Phone } from 'lucide-react';
-import { OFFICIAL_PHONE, OFFICIAL_PHONE_DISPLAY, OFFICIAL_WHATSAPP_NUMBER } from '../config';
+import { ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
+import { OFFICIAL_PHONE_DISPLAY, OFFICIAL_WHATSAPP_NUMBER, OFFICIAL_EMAIL, OFFICIAL_ADDRESS } from '../config';
 
 interface FooterProps {
   onNavigate: (page: PageRoute) => void;
@@ -69,43 +68,47 @@ export const Footer: React.FC<FooterProps> = ({
             <p className="text-xs font-mono uppercase tracking-widest text-[#B8925A] font-semibold">
               Corporate Credentials
             </p>
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               <div>
-                <span className="text-[#FAF8F4]/50 block">Office address:</span>
-                <NeedFactBadge fact="Office address" />
+                <span className="text-[#FAF8F4]/50 flex items-center gap-1 mb-0.5">
+                  <MapPin className="w-3 h-3 text-[#B8925A]" /> Office Address:
+                </span>
+                <span className="text-[#FAF8F4]/90 leading-snug block">
+                  {OFFICIAL_ADDRESS}
+                </span>
               </div>
               <div>
-                <span className="text-[#FAF8F4]/50 block">Phone / WhatsApp:</span>
+                <span className="text-[#FAF8F4]/50 flex items-center gap-1 mb-0.5">
+                  <Phone className="w-3 h-3 text-[#B8925A]" /> Phone / WhatsApp:
+                </span>
                 <a
                   href={`https://wa.me/${OFFICIAL_WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#FAF8F4] font-medium hover:text-[#D4AF37] transition-colors inline-flex items-center gap-1.5"
                 >
-                  <Phone className="w-3 h-3 text-[#B8925A]" />
                   <span>{OFFICIAL_PHONE_DISPLAY}</span>
                 </a>
               </div>
               <div>
-                <span className="text-[#FAF8F4]/50 block">Email:</span>
-                <NeedFactBadge fact="Email" />
-              </div>
-              <div>
-                <span className="text-[#FAF8F4]/50 block">Registered company / RC number:</span>
-                <NeedFactBadge fact="RC number" />
-              </div>
-              <div>
-                <span className="text-[#FAF8F4]/50 block">SCUML registration:</span>
-                <NeedFactBadge fact="SCUML registration, show only once registered" />
+                <span className="text-[#FAF8F4]/50 flex items-center gap-1 mb-0.5">
+                  <Mail className="w-3 h-3 text-[#B8925A]" /> Email:
+                </span>
+                <a
+                  href={`mailto:${OFFICIAL_EMAIL}`}
+                  className="text-[#FAF8F4] font-medium hover:text-[#D4AF37] transition-colors inline-block"
+                >
+                  {OFFICIAL_EMAIL}
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Small Print / Legal Disclaimer */}
+        {/* Legal Disclaimer */}
         <div className="pt-8 space-y-4">
           <p className="text-[11px] leading-relaxed text-[#FAF8F4]/50 text-justify">
-            <strong className="text-[#FAF8F4]/70">Footer disclaimer (small print):</strong> This website is for information only. It is not legal, tax or investment advice. Rental yields and property values are never guaranteed, and figures shown are estimates with their assumptions stated. Every transaction should be reviewed by a qualified Nigerian solicitor, and tax questions belong with a qualified tax adviser.
+            <strong className="text-[#FAF8F4]/70">Disclaimer:</strong> This website is for information only. It is not legal, tax or investment advice. Rental yields and property values are never guaranteed, and figures shown are estimates with their assumptions stated. Every transaction should be reviewed by a qualified Nigerian solicitor, and tax questions belong with a qualified tax adviser.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#FAF8F4]/40 pt-4 border-t border-slate-900 gap-2">

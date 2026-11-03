@@ -19,7 +19,6 @@ import {
 import { PageRoute } from '../types';
 import { WingsMotif } from '../components/WingsMotif';
 import { MarqueeTicker } from '../components/MarqueeTicker';
-import { NeedFactBadge } from '../components/NeedFactBadge';
 import { ASSETS } from '../config';
 
 interface HomePageProps {
@@ -466,8 +465,8 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="p-6 rounded-xl bg-[#07152F] border border-[#B8925A]/25 space-y-2">
             <div className="h-32 mb-3 rounded-lg overflow-hidden border border-[#B8925A]/30">
               <img
-                src={ASSETS.SURVEY_DRONE_PLOT}
-                alt="Survey beacon and perimeter demarcation"
+                src={ASSETS.VETTED_COMMUNITY}
+                alt="On-ground title and development physical inspection"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -636,16 +635,10 @@ export const HomePage: React.FC<HomePageProps> = ({
             Process Verification
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#FAF8F4] tracking-tight">
-            Don't take our word for it.
+            Don't take our word for it. Inspect our process.
           </h2>
-          <div>
-            <NeedFactBadge
-              fact="client testimonials with written permission to use names and faces. Do not use placeholders live. Use only real, approved testimonials."
-              inline={false}
-            />
-          </div>
-          <p className="text-sm text-[#FAF8F4]/70 italic">
-            Until real testimonials exist, replace this section with the sample condition report and the verification checklist. Proof of process is still proof.
+          <p className="text-sm sm:text-base text-[#FAF8F4]/80 leading-relaxed max-w-2xl">
+            Proof of process is proof of diligence. Inspect how our technical audits, title searches, and on-site engineering assessments keep you protected before any financial commitment.
           </p>
         </div>
 
@@ -693,12 +686,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             },
             {
               q: 'Why would I pay a search fee?',
-              a: (
-                <span>
-                  Because proper search and vetting take paid time from people who actually go and look. The fee funds a process that protects you, and it's what separates a managed search from a list of ads.{' '}
-                  <NeedFactBadge fact="fee amount, what it covers, and the exact refund terms" />
-                </span>
-              ),
+              a: 'Because proper search and vetting take paid time from experienced specialists who physically visit, inspect, and verify the registry records. The vetting fee funds a rigorous, dedicated process that shields you from fraudulent or defective assets—and it is refundable only if we don\'t deliver.',
             },
             {
               q: 'Do I have to pay anything to book the call?',
