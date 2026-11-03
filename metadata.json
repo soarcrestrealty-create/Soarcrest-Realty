@@ -1,0 +1,6 @@
+{
+  "name": "Soarcrest Realty | Abuja Investment Property Brokerage",
+  "description": "Vetted, income-generating residential property in Abuja, Nigeria for Nigerians at home and abroad. We find, verify, and negotiate.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
