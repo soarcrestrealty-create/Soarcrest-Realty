@@ -14,15 +14,17 @@ import {
   CheckCircle2,
   Camera,
   XCircle,
-  Eye
+  Eye,
+  Compass
 } from 'lucide-react';
 import { ASSETS } from '../config';
 
 interface ServicesPageProps {
   onOpenBooking: (buttonLabel: string) => void;
+  onOpen3DHouse?: () => void;
 }
 
-export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => {
+export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking, onOpen3DHouse }) => {
   const [activeServiceId, setActiveServiceId] = useState<number>(1);
 
   const services = [
@@ -263,10 +265,22 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
                     )}
 
                     {/* What you get */}
-                    <div className="pt-3 border-t border-[#B8925A]/20">
+                    <div className="pt-3 border-t border-[#B8925A]/20 space-y-3">
                       <p className="text-sm font-semibold text-[#FAF8F4]">
                         <strong className="text-[#D4AF37]">What you get:</strong> {s.whatYouGet}
                       </p>
+
+                      {s.id === 3 && onOpen3DHouse && (
+                        <div className="pt-1">
+                          <button
+                            onClick={onOpen3DHouse}
+                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#0B1F44] border border-[#B8925A]/60 text-[#D4AF37] hover:bg-[#B8925A]/20 hover:text-white text-xs font-mono uppercase tracking-wider transition-all shadow-md active:scale-95"
+                          >
+                            <Compass className="w-4 h-4 text-[#D4AF37]" />
+                            <span>Launch Interactive 3D Villa Vetting Model</span>
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

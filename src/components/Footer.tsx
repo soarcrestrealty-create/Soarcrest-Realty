@@ -1,19 +1,21 @@
 import React from 'react';
 import { Logo } from './Logo';
 import { PageRoute } from '../types';
-import { ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, MapPin, Compass } from 'lucide-react';
 import { OFFICIAL_PHONE_DISPLAY, OFFICIAL_WHATSAPP_NUMBER, OFFICIAL_EMAIL, OFFICIAL_ADDRESS } from '../config';
 
 interface FooterProps {
   onNavigate: (page: PageRoute) => void;
   onOpenBooking: (buttonLabel: string) => void;
   onOpenConditionReport: () => void;
+  onOpen3DHouse?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onNavigate,
   onOpenBooking,
   onOpenConditionReport,
+  onOpen3DHouse,
 }) => {
   return (
     <footer className="relative bg-[#040C1A] text-[#FAF8F4] border-t border-[#B8925A]/30 pt-16 pb-20 md:pb-12 z-10">
@@ -29,8 +31,8 @@ export const Footer: React.FC<FooterProps> = ({
               We find it. We verify it. We negotiate it. We stay beside you after.
             </p>
 
-            {/* Public verification tag */}
-            <div className="pt-2">
+            {/* Verification & 3D tags */}
+            <div className="pt-2 flex flex-wrap items-center gap-2">
               <button
                 onClick={onOpenConditionReport}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0B1F44] border border-[#B8925A]/40 text-[#FAF8F4]/90 hover:text-white hover:border-[#B8925A] transition-colors text-xs"
@@ -38,6 +40,16 @@ export const Footer: React.FC<FooterProps> = ({
                 <ShieldCheck className="w-3.5 h-3.5 text-[#B8925A]" />
                 <span>View Sample Vetting Report</span>
               </button>
+
+              {onOpen3DHouse && (
+                <button
+                  onClick={onOpen3DHouse}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0B1F44] border border-[#B8925A]/40 text-[#D4AF37] hover:text-white hover:border-[#D4AF37] transition-colors text-xs font-mono"
+                >
+                  <Compass className="w-3.5 h-3.5" />
+                  <span>Interactive 3D Villa</span>
+                </button>
+              )}
             </div>
           </div>
 

@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { PageRoute } from '../types';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Compass } from 'lucide-react';
 
 interface HeaderProps {
   currentPage: PageRoute;
   onNavigate: (page: PageRoute) => void;
   onOpenBooking: (buttonLabel: string) => void;
+  onOpen3DHouse?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   currentPage,
   onNavigate,
   onOpenBooking,
+  onOpen3DHouse,
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -102,8 +104,19 @@ export const Header: React.FC<HeaderProps> = ({
               })}
             </nav>
 
-            {/* Zone 3: 1 Primary Action (Persistent Gold Button) */}
-            <div className="flex items-center gap-3 shrink-0">
+            {/* Zone 3: Actions (3D Villa trigger + Persistent Gold Booking Button) */}
+            <div className="flex items-center gap-2.5 shrink-0">
+              {onOpen3DHouse && (
+                <button
+                  onClick={onOpen3DHouse}
+                  className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[#B8925A]/40 bg-[#07152F]/70 text-[#D4AF37] hover:bg-[#B8925A]/20 text-xs font-mono uppercase tracking-wider transition-all shadow-sm"
+                  title="Launch Interactive 3D Villa Inspector"
+                >
+                  <Compass className="w-3.5 h-3.5" />
+                  <span>3D Villa</span>
+                </button>
+              )}
+
               <button
                 onClick={() => onOpenBooking('Book a Free Discovery Call')}
                 className="hidden sm:inline-flex items-center gap-2 px-4 lg:px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#B8925A] to-[#D4AF37] text-[#07152F] text-xs font-bold uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-md"
@@ -146,6 +159,20 @@ export const Header: React.FC<HeaderProps> = ({
                   {item.label}
                 </button>
               ))}
+
+              {onOpen3DHouse && (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpen3DHouse();
+                  }}
+                  className="w-full py-3 px-4 rounded-xl text-left text-sm font-medium text-[#D4AF37] flex items-center gap-2 hover:bg-[#0B1F44] border border-[#B8925A]/30"
+                >
+                  <Compass className="w-4 h-4 text-[#D4AF37]" />
+                  <span>3D Architectural Villa Model</span>
+                </button>
+              )}
+
               <div className="pt-3">
                 <button
                   onClick={() => {

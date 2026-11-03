@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
+import { Ambient3DHouseCanvas } from './Ambient3DHouseCanvas';
 
 export const DynamicBackground: React.FC = () => {
   const { scrollYProgress } = useScroll();
@@ -37,6 +38,9 @@ export const DynamicBackground: React.FC = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden transform-gpu" aria-hidden="true">
+      {/* Ambient Procedural 3D Wireframe House Rotating with Scroll */}
+      <Ambient3DHouseCanvas />
+
       {/* Dynamic Ambient Radiant Light Shafts */}
       <motion.div
         animate={{

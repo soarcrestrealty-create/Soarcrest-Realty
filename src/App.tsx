@@ -6,6 +6,7 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 import { BookingForm } from './components/BookingForm';
 import { SampleReportModal } from './components/SampleReportModal';
 import { PrivacyModal } from './components/PrivacyModal';
+import { ThreeDHouseModal } from './components/ThreeDHouseModal';
 import { DynamicBackground } from './components/DynamicBackground';
 
 // Pages
@@ -28,6 +29,7 @@ export default function App() {
   // Informational Modals
   const [isReportOpen, setIsReportOpen] = useState(false);
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const [is3DHouseOpen, setIs3DHouseOpen] = useState(false);
 
   // Handle URL hash changes or routing
   useEffect(() => {
@@ -72,6 +74,7 @@ export default function App() {
         currentPage={currentPage}
         onNavigate={handleNavigate}
         onOpenBooking={(label) => handleOpenBooking(label)}
+        onOpen3DHouse={() => setIs3DHouseOpen(true)}
       />
 
       {/* Main Page View */}
@@ -93,6 +96,7 @@ export default function App() {
         {currentPage === 'services' && (
           <ServicesPage
             onOpenBooking={handleOpenBooking}
+            onOpen3DHouse={() => setIs3DHouseOpen(true)}
           />
         )}
 
@@ -119,6 +123,7 @@ export default function App() {
         onNavigate={handleNavigate}
         onOpenBooking={handleOpenBooking}
         onOpenConditionReport={() => setIsReportOpen(true)}
+        onOpen3DHouse={() => setIs3DHouseOpen(true)}
       />
 
       {/* Booking Form Modal */}
@@ -148,6 +153,13 @@ export default function App() {
       <PrivacyModal
         isOpen={isPrivacyOpen}
         onClose={() => setIsPrivacyOpen(false)}
+      />
+
+      {/* 3D House Inspector Modal */}
+      <ThreeDHouseModal
+        isOpen={is3DHouseOpen}
+        onClose={() => setIs3DHouseOpen(false)}
+        onOpenBooking={(label) => handleOpenBooking(label)}
       />
     </div>
   );

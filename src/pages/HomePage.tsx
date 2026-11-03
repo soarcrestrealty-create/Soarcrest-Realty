@@ -19,6 +19,7 @@ import {
 import { PageRoute } from '../types';
 import { WingsMotif } from '../components/WingsMotif';
 import { MarqueeTicker } from '../components/MarqueeTicker';
+import { ThreeDHouseInspector } from '../components/ThreeDHouseInspector';
 import { ASSETS } from '../config';
 
 interface HomePageProps {
@@ -40,6 +41,13 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   const scrollToTimeline = () => {
     const el = document.getElementById('how-it-works-timeline');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollTo3DHouse = () => {
+    const el = document.getElementById('3d-house-inspector');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -101,13 +109,23 @@ export const HomePage: React.FC<HomePageProps> = ({
             transition={{ duration: 0.8, delay: 0.55 }}
             className="pt-2 space-y-2"
           >
-            <button
-              onClick={() => onOpenBooking('Book a Free Discovery Call (Hero)')}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[#B8925A] via-[#C5A059] to-[#D4AF37] text-[#07152F] font-bold text-sm sm:text-base tracking-wide uppercase hover:brightness-110 active:scale-95 transition-all shadow-xl gold-glow hover:gold-glow-hover"
-            >
-              <span>Book a Free Discovery Call</span>
-              <ArrowRight className="w-5 h-5 stroke-[2.5]" />
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button
+                onClick={() => onOpenBooking('Book a Free Discovery Call (Hero)')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[#B8925A] via-[#C5A059] to-[#D4AF37] text-[#07152F] font-bold text-sm sm:text-base tracking-wide uppercase hover:brightness-110 active:scale-95 transition-all shadow-xl gold-glow hover:gold-glow-hover"
+              >
+                <span>Book a Free Discovery Call</span>
+                <ArrowRight className="w-5 h-5 stroke-[2.5]" />
+              </button>
+
+              <button
+                onClick={scrollTo3DHouse}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl border border-[#B8925A]/50 bg-[#07152F]/80 text-[#D4AF37] font-bold text-sm tracking-wide uppercase hover:bg-[#B8925A]/15 active:scale-95 transition-all shadow-lg backdrop-blur-sm"
+              >
+                <Compass className="w-4 h-4" />
+                <span>Explore 3D House</span>
+              </button>
+            </div>
             <p className="text-xs text-[#FAF8F4]/60 font-sans">
               A conversation, not a sales pitch. Booking costs nothing.
             </p>
@@ -261,6 +279,24 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
           </div>
         </div>
+      </section>
+
+      {/* INTERACTIVE 3D ARCHITECTURAL HOUSE INSPECTOR */}
+      <section id="3d-house-inspector" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-b border-[#B8925A]/20">
+        <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#B8925A]/40 bg-[#07152F]/90 text-[#D4AF37] text-xs font-mono tracking-widest uppercase shadow-sm">
+            <Compass className="w-4 h-4" />
+            <span>Interactive 3D Architectural Model</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-[#FAF8F4] tracking-tight">
+            Inspect a Contemporary Villa in Full 3D.
+          </h2>
+          <p className="text-sm sm:text-base text-[#FAF8F4]/80 max-w-2xl mx-auto leading-relaxed">
+            Drag to rotate 360°, explode architectural levels, switch between Daylight, Blueprint & Night twilight, and inspect our 5-point physical audit from foundation piling to solar canopy.
+          </p>
+        </div>
+
+        <ThreeDHouseInspector onOpenBooking={onOpenBooking} />
       </section>
 
       {/* SECTION 4: WHAT YOU GET */}
